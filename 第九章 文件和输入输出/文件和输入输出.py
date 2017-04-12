@@ -54,3 +54,54 @@ buffering:用于指示访问文件所采用的缓冲方式。0 表示不缓冲�
 # 9.6 命令行参数
 # 9.7 文件系统
     os模块实际上只是真正加载的模块的前端，正真的那个“模块”明显要依赖与具体的操作系统
+
+    ----------------- os模块 -------------------------------------
+    文件处理：
+    | mkfifo()/mknod() : 创建命名管道/创建文件系统节点
+    | remove()/unlink() : 删除文件
+    | rename()/renames() ：重命名文件
+    | symlink() : 创建符号链接
+    | utime() ： 更新时间戳
+    | tmpfile() ：创建并打开一个新的临时文件
+    | walk() ：生成一个目录树下的所有文件名
+    目录/文件夹
+    | chdir()/fchdir() ：改变当前工作目录/通过一个文件描述符改变当前工作目录
+    | chroot() 改变当前进程的根目录
+    | listdir() 列出指定目录的文件
+    | getcwd()/getcwdu() 返回当前工作目录/功能相同，但返回一个Unicode对象
+    | mkdir()/makedirs() 创建目录、创建多层目录
+    | rmdir()/removedirs() 删除目录/删除多层目录
+    访问/权限
+    | access() 检验权限模式
+    | chmod() 改变权限模式
+    | chown()/lchown() 改变owner和group ID/功能相同，但不会跟踪链接
+    | umask() 设置默认权限模式
+    文件描述符操作
+    | open() 底层的操作系统 open （对于文件，使用标准的内建 open() 函数）
+    | read()/write() 根据文件描述符读取/写入数据
+    | dup()/dup2() 赋值文件描述符号/功能相同，但是是赋值到另一个文件描述符
+    设备号
+    | makedev() 从major和minor设备号创建一个原始设备号
+    | major()/minor() 从原始设备号获得major/minor设备号
+
+    ----------------- os.path模块 -------------------------------------
+    分割
+    | basename() 去掉目录路劲，返回文件名
+    | dirname() 去掉文件名，返回目录路径
+    | join() 将分离的各部分组合成一个路径名
+    | split() 返回 （dirname(),basename()）元组
+    | splitdrive() 返回 （dirname,basename）元组
+    | splitext() 返回 （filename,extesion)元组
+    信息
+    | getatime() 返回最近访问时间
+    | getctime() 返回文件创建时间
+    | getmtime() 返回最近文件修改时间
+    | getsize() 返回文件大小（以字节为单位）
+    查询
+    | existes() 执行路径（文件或目录）是否存在
+    | isabs() 指定路径是否为绝对路径
+    | isdir() 指定路径是否存在且为一个目录
+    | isfile() 指定路径是否存在且为一个文件
+    | islink() 指定路径是否存在且为一个符号链接
+    | ismount() 指定路径是否存在且为一个挂载点
+    | samefile() 两个路径是否指向同一个文件
